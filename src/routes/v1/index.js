@@ -1,0 +1,8 @@
+const express = require('express');
+const CityController = require('../../controllers/city_controller');
+
+const router = express.Router();
+
+router.post('/city',CityController.create); // When someone calls /v1/city we are going to call this city controller
+
+module.exports = router; 
