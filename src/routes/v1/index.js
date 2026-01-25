@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/city',CityController.create); // When someone calls /v1/city we are going to call this city controller
 router.delete('/city/:id',CityController.destroy);
 router.get('/city/:id',CityController.get);
+router.get('/city',CityController.getAll);
 router.patch('/city/:id',CityController.update);
 
 
