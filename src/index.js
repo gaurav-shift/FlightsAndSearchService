@@ -4,6 +4,9 @@ const {PORT} = require('./config/serverConfig');
 
 const ApiRoutes = require('./routes/index');
 
+const db = require('./models/index');
+const city = require("./models/city");
+
 const setupAndStartServer = async() =>{
     // create a exp obj
     const app = express();
@@ -16,6 +19,8 @@ const setupAndStartServer = async() =>{
 
     app.listen(PORT,()=>{
         console.log(`Server Started at ${PORT}`);
+        if(process.env.SYNC_DB) db.sequelize.sync({alter: true});
+
     });
 }
 
